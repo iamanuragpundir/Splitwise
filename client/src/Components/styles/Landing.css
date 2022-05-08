@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    margin-top: 80px;
+
+}
+
+.texts {
+    color: gray;
+    font-size: 30px;
+    font-weight: bold;
+}
