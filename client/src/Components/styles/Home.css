@@ -5,11 +5,17 @@
     align-items: left;
     text-align: left;
     margin-top: 80px;
-
 }
 
 .texts {
     color: gray;
     font-size: 30px;
     font-weight: bold;
+}
+
+.landing{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }

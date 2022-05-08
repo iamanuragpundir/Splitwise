@@ -7,7 +7,7 @@ import About from './Components/code/About';
 import Activity from './Components/code/Activity';
 import Friends from './Components/code/Friends';
 import Groups from './Components/code/Groups';
-import Landing from './Components/code/Landing';
+import Navbar from './Components/code/Navbar';
 
 function App() {
 
@@ -38,13 +38,13 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
+				<Navbar signed={signed} updateUser={updateUser} user={user}/>
 				<Routes>
-					<Route exact path="/" element={<Home signed={signed} updateUser={updateUser} />} />
+					<Route exact path="/" element={<Home />} />
 					<Route exact path="/about" element={<About signed={signed} />} />
 					<Route exact path="/friends" element={<Friends signed={signed} />} />
 					<Route exact path="/groups" element={<Groups signed={signed} />} />
 					<Route exact path="/activity" element={<Activity signed={signed} />} />
-					<Route exact path="/landing" element={<Landing signed={signed} />} />
 				</Routes>
 			</Router>
 		</div>
