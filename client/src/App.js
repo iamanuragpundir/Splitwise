@@ -7,6 +7,7 @@ import About from './Components/code/About';
 import Activity from './Components/code/Activity';
 import Friends from './Components/code/Friends';
 import Groups from './Components/code/Groups';
+import Landing from './Components/code/Landing';
 
 function App() {
 
@@ -21,13 +22,13 @@ function App() {
 	}, [])
 
 	const updateUser = (obj, login_req) => {
-		if(login_req){
+		if (login_req) {
 
 			set_user(obj);
 			localStorage.setItem("splitwise_user", JSON.stringify(obj))
 			set_signed(true);
 		}
-		else{
+		else {
 			localStorage.removeItem("splitwise_user")
 			set_signed(false);
 			set_user([]);
@@ -38,11 +39,12 @@ function App() {
 		<div className="App">
 			<Router>
 				<Routes>
-					<Route exact path="/" element={<Home signed={signed} updateUser={updateUser}/>} />
+					<Route exact path="/" element={<Home signed={signed} updateUser={updateUser} />} />
 					<Route exact path="/about" element={<About signed={signed} />} />
 					<Route exact path="/friends" element={<Friends signed={signed} />} />
 					<Route exact path="/groups" element={<Groups signed={signed} />} />
 					<Route exact path="/activity" element={<Activity signed={signed} />} />
+					<Route exact path="/landing" element={<Landing signed={signed} />} />
 				</Routes>
 			</Router>
 		</div>
