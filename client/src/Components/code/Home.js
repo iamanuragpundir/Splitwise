@@ -5,14 +5,15 @@ import '../styles/Home.css'
 
 function Home(props) {
 	return (
-		<div className="landing" style={{ backgroundImage: `url(${background})`}}>
+		<div className="landing" style={{ backgroundImage: `url(${background})` }}>
 			<div className='content'>
 				<Row>
 					<Col sm={1}>&nbsp;</Col>
 					<Col>
 						<Container>
 							<h1>Splitwise</h1>
-							<h3 className='texts'>Less stress when sharing expenses with housemates.</h3>
+							<h3 className='texts'>Less stress when sharing expenses with Housemates
+							</h3>
 							<p className="text">
 								Keep track of your shared expenses and balances
 								{' '}
@@ -25,7 +26,11 @@ function Home(props) {
 				</Row>
 			</div>
 		</div>
+
+
+
 	)
+
 }
 
 export default Home

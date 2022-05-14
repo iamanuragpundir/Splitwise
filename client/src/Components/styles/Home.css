@@ -4,7 +4,8 @@
     justify-content: left;
     align-items: left;
     text-align: left;
-    margin-top: 80px;
+    margin-top: 110px;
+
 }
 
 .texts {
@@ -13,9 +14,10 @@
     font-weight: bold;
 }
 
-.landing{
+.landing {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    overflow-x: hidden
 }
