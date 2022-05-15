@@ -1,23 +1,18 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    text-align: left;
-    margin-top: 110px;
-
-}
-
-.texts {
-    color: gray;
-    font-size: 30px;
-    font-weight: bold;
-}
-
 .landing {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
     overflow-x: hidden
+}
+
+.green {
+    width: 100%;
+    height: 300px;
+}
+
+.orange {
+    width: 100%;
+    height: 300px;
+}
+
+.gray {
+    width: 100%;
+    height: 300px;
 }
