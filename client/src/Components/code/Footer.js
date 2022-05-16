@@ -1,9 +1,10 @@
 import React from 'react'
 import '../styles/Footer.css'
+import BottomLine from '../../assets/images/BottomLine.png'
 
 function footer() {
     return (
-        <div class='footer'>
+        <div class='footer' style={{ backgroundImage: `url(${BottomLine})` }}>
             <footer>
                 <div class="footer-left col-md-4 col-sm-6">
                     <p class="about">
@@ -44,8 +45,10 @@ function footer() {
                     </p>
                     <p class="name"> Splitwise &copy; 2022</p>
                 </div>
+
             </footer>
         </div>
+
     )
 }
 
