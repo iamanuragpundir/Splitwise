@@ -8,6 +8,7 @@ import Activity from './Components/code/Activity';
 import Friends from './Components/code/Friends';
 import Groups from './Components/code/Groups';
 import Navbar from './Components/code/Navbar';
+import Footer from './Components/code/Footer';
 
 function App() {
 
@@ -38,15 +39,17 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<Navbar signed={signed} updateUser={updateUser} user={user}/>
+				<Navbar signed={signed} updateUser={updateUser} user={user} />
 				<Routes>
 					<Route exact path="/" element={<Home />} />
 					<Route exact path="/about" element={<About signed={signed} />} />
 					<Route exact path="/friends" element={<Friends signed={signed} />} />
 					<Route exact path="/groups" element={<Groups signed={signed} />} />
 					<Route exact path="/activity" element={<Activity signed={signed} />} />
+
 				</Routes>
 			</Router>
+			<Footer />
 		</div>
 	);
 }
