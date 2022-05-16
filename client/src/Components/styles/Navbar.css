@@ -3,3 +3,6 @@
     color: brown;
     height: 60px;
 }
+h6 :hover{
+    cursor: pointer;
+}

@@ -8,8 +8,8 @@ function Home(props) {
 		<div className="landing" style={{ backgroundImage: `url(${background})`}}>
 			<div className='content'>
 				<Row>
-					<Col sm={1}>&nbsp;</Col>
-					<Col>
+					<Col className="col" sm={1}>&nbsp;</Col>
+					<Col className="col">
 						<Container>
 							<h1>Splitwise</h1>
 							<h3 className='texts'>Less stress when sharing expenses with housemates.</h3>
@@ -21,7 +21,7 @@ function Home(props) {
 							</p>
 						</Container>
 					</Col>
-					<Col>&nbsp;</Col>
+					<Col className="col">&nbsp;</Col>
 				</Row>
 			</div>
 		</div>

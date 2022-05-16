@@ -19,3 +19,6 @@
     background-size: cover;
     height: 100vh;
 }
+.col{
+    padding: 0;
+}

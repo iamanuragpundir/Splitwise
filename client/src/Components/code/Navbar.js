@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import {useNavigate} from 'react-router'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { Link } from "react-router-dom";
-import { sign_in } from '../../Splitwise-Google-Signin';
 import SplitwiseLogo from '../../assets/images/Splitwise_logo.png';
 import ProfilePicLogo from '../../assets/images/profile_pic_logo.png';
 import '../styles/Navbar.css';
+import Profile from './Profile';
 
 function Navbar(props) {
 
     const navigate = useNavigate();
     // const [picSrc, set_picSrc] = useState({ProfilePicLogo})
     const [userName, set_userName] = useState("")
+    const [openProfile, set_openProfile] = useState(false);
 
     useEffect(() => {
         if (props.signed) {
@@ -42,22 +43,17 @@ function Navbar(props) {
 
     }
 
-    const handleLogout = (response) => {
-        navigate('/')
-        props.updateUser(response, false)
+    const closeProfileBox = () => {
+        set_openProfile(false);
     }
+
     const prof_icon = (props.signed)
         ? <div>
             {/* <img width="40px" height="40px" src={picSrc} /> */}
-            <h6>{userName}</h6>
-            <GoogleLogout
-                clientId="84478547183-qvd772o7l4697bdmvf931rkm4i05ds8f.apps.googleusercontent.com"
-                // render={renderProps => (
-                //     <a href="#" onClick={renderProps.onClick} disabled={renderProps.disabled}>Logout</a>
-                // )}
-                buttonText="Logout"
-                onLogoutSuccess={handleLogout}
-            />
+            <h6 onClick={() => {set_openProfile(!openProfile)}}>
+                <u>{userName}</u>
+            </h6>
+            {(openProfile === true) ? <Profile updateUser={props.updateUser} closeProfileBox={closeProfileBox}/> : <></>}
         </div>
 
         : <GoogleLogin
@@ -93,7 +89,6 @@ function Navbar(props) {
                         </li>
                         {/* <button type="button" className="btn btn-secondary" >Create a Group</button> */}
                     </ul>
-
                     {prof_icon}
                 </div>
             </div>
