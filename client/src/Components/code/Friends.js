@@ -3,43 +3,63 @@ import { useNavigate } from 'react-router'
 import '../styles/Friends.css'
 
 function Friends(props) {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  useEffect(() => {
-    if (props.signed === false) navigate('/', true);
-  })
+	useEffect(() => {
+		if (props.signed === false) navigate('/', true);
+	})
 
-  const data = [["Ashfiya Hussain", 100], ["Ashfiya Hussain", 100], ["Ashfiya Hussain", 100], ["Ashfiya Hussain", 100]];
+	const data = [
+		{ userName: "Ashfiya Hussain", amount: 200 },
+		{ userName: "Ashfiya Hussain", amount: -100 },
+		{ userName: "Avichal Jain", amount: 200 },
+		{ userName: "Ashfiya Hussain", amount: 100 },
+		{ userName: "Ashfiya Hussain", amount: -200 },
+		{ userName: "Ashfiya Hussain", amount: 0 },
+		{ userName: "Anurag Pundir", amount: -200 },
+		{ userName: "Ashfiya Hussain", amount: -200 },
+		{ userName: "Anurag Pundir", amount: 100 },
+		{ userName: "Ashfiya Hussain", amount: 200 },
+		{ userName: "Anurag Pundir", amount: 100 },
+		{ userName: "Ashfiya Hussain", amount: -200 },
+	];
 
-  const entries = []
-  data.map((e) => {
-    entries.push(<p>{e[0]} <span> {e[1]}</span></p>)
-  })
+	const entries = [];
+	let balance = 0;
 
-  return (
-    <div className="friends-div">
-      <span> Overall, you owe $250</span>
-      <div className="friends-table">
-        <table className="table table-striped table-hover">
-          <tbody>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
-            <tr>
-              <td>Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+	data.map((e) => {
+		balance += e.amount;
+		let indivisualBalanceState
+		let indivisualBalanceColor
 
-      </div>
-    </div>
-  )
+		if(e.amount > 0) {indivisualBalanceState = "owes you"; indivisualBalanceColor = "greenCol"}
+		else if(e.amount < 0) {indivisualBalanceState = "you owe"; indivisualBalanceColor = "redCol"}
+		else {indivisualBalanceState = "settled up"; indivisualBalanceColor = "grayCol"}
+
+		entries.push(<tr>
+			<td>{e.userName}</td>
+			<td><span className={indivisualBalanceColor}>{indivisualBalanceState}, ₹{Math.abs(e.amount)}</span></td>
+		</tr>)
+	})
+
+	let balanceState
+	let balanceColor
+	if (balance == 0) {balanceState = "are all settled-up"; balanceColor="grayCol";}
+	else if (balance > 0) {balanceState = `are owed Rs. ${balance}`; balanceColor="greenCol";}
+	else {balanceState = `owe Rs. ${-1 * balance}`; balanceColor="redCol";}
+
+	return (
+		<div className="friends-div">
+			<span><h5>Overall, you <span className={balanceColor}>{balanceState}</span></h5></span>
+			<div className="friends-table">
+				<table className="table table-striped table-hover">
+					<tbody>
+						{entries}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	)
 }
 
 export default Friends

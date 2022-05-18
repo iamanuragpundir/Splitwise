@@ -64,13 +64,13 @@ function Navbar(props) {
             cookiePolicy={'single_host_origin'}
         />
     return (
-        <nav className="navbar container-navbar navbar-expand-lg navbar-light  pt-0 pb-0">
+        <nav className="navbar container-navbar navbar-expand-lg navbar-light  pt-0 pb-0" expand="lg">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     <img width="40px" height="35px" src={SplitwiseLogo} />
                 </Link>
                 <Link className="navbar-brand" to="/">Splitwise</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

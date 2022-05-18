@@ -20,7 +20,7 @@ function App() {
 			set_user(JSON.parse(localStorage.getItem('splitwise_user')));
 			set_signed(true);
 		}
-	}, [])
+	}, [signed])
 
 	const updateUser = (obj, login_req) => {
 		if (login_req) {
