@@ -16,8 +16,8 @@ function Navbar(props) {
 
     useEffect(() => {
         if (props.signed) {
-            const firstName = props.user.profileObj.givenName;
-            const lastName = props.user.profileObj.familyName;
+            const firstName = props.user.givenName;
+            const lastName = props.user.familyName;
 
             const name = firstName[0].toUpperCase() + firstName.substring(1) + " " + lastName[0].toUpperCase() + lastName.substring(1);
             set_userName(name);
@@ -38,7 +38,7 @@ function Navbar(props) {
 
 
             //if an old user
-            props.updateUser(response, true);
+            props.updateUser(response.profileObj, true);
         }
 
     }

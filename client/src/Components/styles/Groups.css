@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.groups{
+    width: 80%;
+    position: relative;
+    left: 15%;
+}
+
+.accordion{
+    width: 60%;
+}
+.accordion-button:not(.collapsed) {
+    color: #000000 !important;
+}
+.group-details{
+    position: relative;
+    left: 85%;
+}

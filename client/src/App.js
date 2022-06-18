@@ -22,11 +22,10 @@ function App() {
 		}
 	}, [signed])
 
-	const updateUser = (obj, login_req) => {
+	const updateUser = (profile, login_req) => {
 		if (login_req) {
-
-			set_user(obj);
-			localStorage.setItem("splitwise_user", JSON.stringify(obj))
+			set_user(profile);
+			localStorage.setItem("splitwise_user", JSON.stringify(profile))
 			set_signed(true);
 		}
 		else {
@@ -42,10 +41,10 @@ function App() {
 				<Navbar signed={signed} updateUser={updateUser} user={user} />
 				<Routes>
 					<Route exact path="/" element={<Home />} />
-					<Route exact path="/about" element={<About signed={signed} />} />
-					<Route exact path="/friends" element={<Friends signed={signed} />} />
-					<Route exact path="/groups" element={<Groups signed={signed} />} />
-					<Route exact path="/activity" element={<Activity signed={signed} />} />
+					<Route exact path="/about" element={<About signed={signed}  user={user} />} />
+					<Route exact path="/friends" element={<Friends signed={signed} user={user} />} />
+					<Route exact path="/groups" element={<Groups signed={signed} user={user} />} />
+					<Route exact path="/activity" element={<Activity signed={signed} user={user} />} />
 
 				</Routes>
 			</Router>

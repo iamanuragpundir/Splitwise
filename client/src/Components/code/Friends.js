@@ -1,28 +1,40 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import '../styles/Friends.css'
 
 function Friends(props) {
 	const navigate = useNavigate();
+	const [data, set_data] = useState([])
 
 	useEffect(() => {
 		if (props.signed === false) navigate('/', true);
-	})
+		
+		console.log("hnji friends")
+		fetch("http://localhost:5000/api/v1/friends", 
+		{
+			headers: {
+				"Access-Control-Allow-Origin": "*"
+			}
+		})
+		.then(response => response.json())
+  		.then(data => set_data(data.friendsList));
 
-	const data = [
-		{ userName: "Ashfiya Hussain", amount: 200 },
-		{ userName: "Ashfiya Hussain", amount: -100 },
-		{ userName: "Avichal Jain", amount: 200 },
-		{ userName: "Ashfiya Hussain", amount: 100 },
-		{ userName: "Ashfiya Hussain", amount: -200 },
-		{ userName: "Ashfiya Hussain", amount: 0 },
-		{ userName: "Anurag Pundir", amount: -200 },
-		{ userName: "Ashfiya Hussain", amount: -200 },
-		{ userName: "Anurag Pundir", amount: 100 },
-		{ userName: "Ashfiya Hussain", amount: 200 },
-		{ userName: "Anurag Pundir", amount: 100 },
-		{ userName: "Ashfiya Hussain", amount: -200 },
-	];
+	}, [])
+
+	// const data = {friendsList: [
+	// 	{ userName: "Ashfiya Hussain", amount: 200 },
+	// 	{ userName: "Ashfiya Hussain", amount: -100 },
+	// 	{ userName: "Avichal Jain", amount: 200 },
+	// 	{ userName: "Ashfiya Hussain", amount: 100 },
+	// 	{ userName: "Ashfiya Hussain", amount: -200 },
+	// 	{ userName: "Ashfiya Hussain", amount: 0 },
+	// 	{ userName: "Anurag Pundir", amount: -200 },
+	// 	{ userName: "Ashfiya Hussain", amount: -200 },
+	// 	{ userName: "Anurag Pundir", amount: 100 },
+	// 	{ userName: "Ashfiya Hussain", amount: 200 },
+	// 	{ userName: "Anurag Pundir", amount: 100 },
+	// 	{ userName: "Ashfiya Hussain", amount: -200 }
+	// ]};
 
 	const entries = [];
 	let balance = 0;
@@ -49,10 +61,12 @@ function Friends(props) {
 	else {balanceState = `owe Rs. ${-1 * balance}`; balanceColor="redCol";}
 
 	return (
-		<div className="friends-div">
-			<span><h5>Overall, you <span className={balanceColor}>{balanceState}</span></h5></span>
+		<div className="friends-div">	
 			<div className="friends-table">
 				<table className="table table-striped table-hover">
+					<th>
+					<span><h5>Overall, you <span className={balanceColor}>{balanceState}</span></h5></span>
+					</th>
 					<tbody>
 						{entries}
 					</tbody>
