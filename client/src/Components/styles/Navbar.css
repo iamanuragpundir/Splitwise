@@ -1,5 +1,8 @@
-.container-navbar{
-    background-color: rgba(238, 232, 232, 0.603);
+.container-navbar {
+    background-color: white;
     color: brown;
-    height: 60px;
+    height: 70px;
+}
+h6 :hover{
+    cursor: pointer;
 }

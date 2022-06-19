@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.texts {
+    color: gray;
+    font-size: 30px;
+}
+
+.landing {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
